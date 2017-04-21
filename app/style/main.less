@@ -1,3 +1,47 @@
+@import "mixins.less";
+
+
+@icomconPath: '../font/icomoon/';
+@font-face {
+  font-family: 'icomoon';
+  src:  url('@{icomconPath}/icomoon.eot');
+  src:  url('@{icomconPath}/icomoon.eot') format('embedded-opentype'),
+    url('@{icomconPath}/icomoon.ttf') format('truetype'),
+    url('@{icomconPath}/icomoon.woff') format('woff'),
+    url('@{icomconPath}/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon-my_location:before {
+  content: "\e900";
+}
+.icon-zoom-in:before {
+  content: "\e987";
+}
+.icon-zoom-out:before {
+  content: "\e988";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+
 
 //
 html{
@@ -10,7 +54,7 @@ html{
     width: 100%;
     height: 100%;
     font-size: medium;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
     background: white;
     color: rgba(50, 50, 50, 0.8);
     background-color: rgba(238, 238, 238, 1.00);
@@ -18,3 +62,174 @@ html{
 
   }
 }
+
+
+//maps
+#maps{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+#zoom {
+  position: fixed;
+  bottom: 21px;
+  right: 10px;
+  display: inline-block;
+  width: 35px;
+  height: 70px + 1px;
+
+  background-color: white;
+  z-index: 20;
+  border-radius: 3px;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.3);
+
+  a{
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+    font-size: 18px;
+    &:before {
+      // content: "\e987";
+      // font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      line-height: 35px;
+    }
+    + a {
+      margin-top: 1px;
+      position: relative;
+      &:before {
+
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 5px;
+        display: inline-block;
+        width: ~"calc(100% - 5px * 2)";
+        height: 1px;
+        background-color: rgba(230, 230, 230, 1);
+      }
+    }
+  }
+}
+#location {
+  position: fixed;
+  bottom: 21px + 70px + 1px + 10px;
+  right: 10px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  z-index: 20;
+  border-radius: 3px;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.3);
+  font-size: 16px;
+  cursor: pointer;
+  &:before{
+    line-height: 35px;
+  }
+}
+
+//checkbox3
+// #box{
+//
+//   width: 200px;
+//   background-color: rgba(0, 0, 255, 0.2);
+//   .clearfix();
+//   .item {
+//     display: inline-block;
+//     float: left;
+//     width: 100px;
+//     height: 200px;
+//   }
+// }
+
+
+//----checkbox2-----
+// #box {
+//   position: relative;
+//   display: inline-block;
+//   width:35px;
+//   height:35px;
+//   line-height:35px;
+//   background-color: white;
+//   border: 1px solid rgba(39,40, 34 ,0.3);
+//   border-radius: 3px;
+//   * > {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//   }
+//   span {
+//     display: inline-block;
+//     width: 100%;
+//     height:100%;
+//     &:before {
+//       content: "\ea10";
+//       font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+//       font-size: 25px;
+//       opacity: 0;
+//       transition: opacity .3s;
+//     }
+//   }
+//   input {
+//     opacity: 0;
+//     &:checked {
+//       ~ span {
+//         &:before {
+//           opacity: 1;
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+//----checkbox1-----
+// #ckb {
+//   position:  fixed;
+//   top: -999px;
+//   left: -999px;
+//    nz-index: -999;
+//   opacity:  0;
+//   display: inline-block;
+//   width:  50px;
+//   height: 50px;
+//   border: 1px solid rgba(255,0,0,.3);
+//
+//   &:checked {
+//     ~ #cover {
+//       width:200px;
+//       height:200px;
+//     }
+//   }
+// }
+//
+// #cover {
+//   display: inline-block;
+//   width: 100px;
+//   height: 100px;
+//   background-color: rgba(0, 0, 255, 0.2);
+//
+//
+// }
+//
+//
+// #menu {
+//   display: inline-block;
+//   width: 45px;
+//   height: 45px;
+// }
