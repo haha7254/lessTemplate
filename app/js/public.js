@@ -4,7 +4,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 $(function(){
   var $maps = $('#maps');
 
-  var _maps= null;
+  var _maps= null, _user = null, _polyline = null, _isGet = false;
 
   google.maps.event.addDomListener(window, 'load', function(){
       var position = new google.maps.LatLng(35.690892, 139.698001);
@@ -13,7 +13,44 @@ $(function(){
         Lat: 35.681029,
         Lng: 139.765307
       }
+
+
+      function getGPS(){
+        if(_isGet) return;
+        _isGet = true;
+        console.error('----------');
+        $.get( "http://localhost:3000/gps", function( data ) {
+          //console.error(data);
+
+          data.maps = data.maps.map(function(item){
+            return new google.maps.LatLng(item[0], item[1])
+          });
+          _polyline.setPath(data.maps);
+          _user.setOptions({
+            position:  data.maps[data.maps.length-1],
+            labelContent: '<img src="img/patrickchen.png"><div class="comment">'+data.comment +'</div>'
+          })
+
+        }).complete(function(){
+          _isGet = false;
+        });
+      }
+      // var _gpsPoints = [
+      //   [35.687923227588456, 139.6908187866211],
+      //   [35.68896890439038, 139.69103336334229],
+      //   [35.690537393891475, 139.69311475753784],
+      //   [35.69058967634366, 139.69538927078247],
+      //   [35.69091208404159, 139.69684839248657]
+      //
+      // ];
+
       _maps = new google.maps.Map($maps.get(0),{ zoom:16, disableDefaultUI: true, center: position });
+
+
+      _maps.addListener('click', function(e){
+        console.error(e.latLng.lat(), e.latLng.lng());
+      })
+
 
       $('#zoom-in').click(function(){
           _maps.setZoom(_maps.zoom+1);
@@ -23,19 +60,40 @@ $(function(){
       });
       $('#location').click(function(){
           _maps.setCenter(new google.maps.LatLng(myPosition.Lat, myPosition.Lng));
+
       });
       // new google.maps.Marker({
       //   map: _maps,
       //   position: position
       // });
-      _vz = new MarkerWithLabel({
+
+      _user = new MarkerWithLabel({
         map: _maps,
         position: position,
         icon: {path: 'M 0 0'},
-        labelAnchor: new google.maps.Point( 50 / 2, 50 / 2),
+        labelAnchor: new google.maps.Point( 50 / 2, 50 / 2 + 35 + 10),
         labelClass: 'user',
-        labelContent: '<img src="img/patrickchen.png">'
+        //labelContent: '<img src="img/patrickchen.png">'
+        labelContent:'<img src="img/patrickchen.png">'
+      });
+      _polyline = new google.maps.Polyline({
+        map: _maps,
+        strokeColor: 'rgba(255,3,0,.5)',
+        strokeWeight: 4,
+
       })
+
+      //path:_gpsPoints
+      //_user.setPosition( _gpsPoints[_gpsPoints.length-1]);
+
+       getGPS();
+       setInterval(getGPS, 5*1000);
+      setTimeout(function(){
+        _user.setOptions({
+          labelContent:'<img src="img/patrickchen.png">'
+        })
+
+      }, 5*1000);
   });
 
 });
