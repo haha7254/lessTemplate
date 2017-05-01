@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     // webserver = require('gulp-webserver'),
-    connect = require('gulp-connect')
+    connect = require('gulp-connect'),
+    watch = require('gulp-watch'),
     less = require('gulp-less');
 
 var plugins = require('gulp-load-plugins')({
