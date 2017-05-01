@@ -24,7 +24,7 @@ gulp.task('server', function(){
 
 gulp.task('livereload', function () {
   gulp.src(['/app/style/*.css', './app/js/*.js', '*.html'])
-      .pipe(watch())
+      .pipe(watch(['/app/style/*.css', './app/js/*.js', '*.html']))
       .pipe(connect.reload());
 });
 
