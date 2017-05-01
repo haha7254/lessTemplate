@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     // webserver = require('gulp-webserver'),
+     watch = require('gulp-watch'),
     connect = require('gulp-connect')
     less = require('gulp-less');
 
@@ -22,7 +23,7 @@ gulp.task('server', function(){
 })
 
 gulp.task('livereload', function () {
-  gulp.src(['/app/style/*.css', './app/js/*.js', '*.html'])
+  gulp.src(['app/style/*.css', 'app/js/*.js', '*.html'])
       .pipe(watch())
       .pipe(connect.reload());
 });
