@@ -73,6 +73,12 @@ $(function(){
         icon: {path: 'M 0 0'},
         labelAnchor: new google.maps.Point( 50 / 2, 50 / 2 + 35 + 10),
         labelClass: 'user',
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        labelContent: '<img src="/img/patrickchen.png">'
+=======
+>>>>>>> Stashed changes
         //labelContent: '<img src="img/patrickchen.png">'
         labelContent:'<img src="img/patrickchen.png">'
       });
@@ -81,6 +87,10 @@ $(function(){
         strokeColor: 'rgba(255,3,0,.5)',
         strokeWeight: 4,
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/lessTest
+>>>>>>> Stashed changes
       })
 
       //path:_gpsPoints
