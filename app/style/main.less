@@ -1,3 +1,19 @@
+/* --- CLEARFIX --- */
+.clearfix() {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
 
 //
 html{
@@ -17,4 +33,30 @@ html{
 
 
   }
+}
+
+#header{
+
+
+  width: 960px;
+  height: 128px;
+  border-color: green;
+  .clearfix();
+
+
+  .item1{
+    display: inline-block;;
+
+
+    width: 120px;
+    border: 1px solid yellow;
+  }
+  .item2{
+    display: inline-block;;
+
+    width: ~"calc(100% - 120px)";
+    border: 1px solid red;
+
+  }
+
 }
