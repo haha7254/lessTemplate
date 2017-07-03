@@ -1,10 +1,11 @@
+@icomconPath: '../font/icomcon/';
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?pl5mug');
-  src:  url('fonts/icomoon.eot?pl5mug#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?pl5mug') format('truetype'),
-    url('fonts/icomoon.woff?pl5mug') format('woff'),
-    url('fonts/icomoon.svg?pl5mug#icomoon') format('svg');
+  src:  url('@{icomconPath}fonts/icomoon.eot');
+  src:  url('@{icomconPath}fonts/icomoon.eot') format('embedded-opentype'),
+    url('@{icomconPath}fonts/icomoon.ttf') format('truetype'),
+    url('@{icomconPath}fonts/icomoon.woff') format('woff'),
+    url('@{icomconPath}fonts/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,7 +24,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-social-pinterest:before {
   content: "\e902";
 }

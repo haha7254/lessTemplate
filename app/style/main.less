@@ -1,4 +1,6 @@
 
+@import "./less/mixins.less";
+@import "./less/icomon.less";
 //
 html{
   height: 100%;
@@ -17,4 +19,304 @@ html{
 
 
   }
+}
+
+#top_banner{
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  // &.transi {
+  //   > div {
+  //     transition:  left .3s;
+  //   }
+  // }
+
+  .nth-loop(3);
+
+  > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transition: left .3s;
+ 
+    // @iteration:3;
+    // .nth-child-loop(@iteration);
+    
+    img {
+      display: inline-block;
+      width: 100%;    
+
+    }    
+  }
+
+  
+}
+
+@menuWidth : 280px;
+#main{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  .clearfix();
+
+  >* {
+      float: left;
+      display: inline-block; 
+    }  
+}
+
+#top_banner_ctrl {
+  position: absolute;
+  left: @menuWidth;
+  top: -55px;  
+  display: inline-block;
+  width: calc(~"100%" - @menuWidth  ~" - 16px - 16px");
+  height: 55px;
+  padding: 0 16px;
+
+  background-color: white;
+  text-align: left;
+  .clearfix();
+
+  > * {
+    float: left;
+    display: inline-block;
+    
+  }
+  .down {
+    position: relative;
+    border: 1px solid transparent;
+    width: calc(~"100% - 350px - 80px - 110px - 16px - 16px");
+    //因為內容的position是 absolute 所以他的父母的寬度必須要有border?
+    > div {
+      position: absolute;
+      left: calc(~"50% - 14px / 2");
+      top:20px; 
+      display: inline-block;
+      width: 18px;
+      height: 15px;
+      
+      
+      a{
+        position: absolute;
+        left: 0;
+        top: -2px;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgba(188, 188, 188, 1.0);
+        border-top: 0;
+        border-left: 0;
+        cursor: pointer;        
+        transform: rotate(45deg);
+        transition: top .3s;
+
+        +a {     
+          top: 2px;
+        }        
+      }
+
+      &:hover{
+        a {
+          top: -4px;
+
+          + a {
+            top: 4px;
+             
+          }
+        }
+      }
+    }
+    // a{
+    //   position: absolute;
+    //   left: calc(~"50% - 14px / 2");
+    //   top:@top;
+    //   display: inline-block;
+    //   width: 14px;
+    //   height: 14px;
+    //   border: 2px solid rgba(188, 180, 180, 1.0);
+    //   border-top: 0;
+    //   border-left: 0;
+    //   cursor: pointer;
+    //   transform:rotate(45deg);
+
+    //   + a{
+    //     top: 5px + @top;
+    //   }
+    //   &:hover {
+    //     top: @top - 1px;
+    //   }
+    // }
+  }
+  .share {
+    width: 350px;
+    margin-top: 10px;
+    height: 35px;
+    line-height: 35px;       
+    > *{
+      float: left;
+      display: inline-block;      
+    }
+    span {
+      width: 50px;
+    }
+    div {
+      width: calc(~"(100% - 50px) / 5" );
+      text-align: center;
+      a {
+        position: relative;
+        text-decoration: none;
+        color: rgba(200, 200, 200, 1.0);
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px - 2px;
+        border: 1px solid rgba(200,200, 200, 1.0);
+        border-radius: 17px;
+        z-index: 1;
+        overflow: hidden;
+        transition: color .3s, border-width .3s;
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: calc(~"50% - 10px / 2");
+          top: calc(~"50% - 10px / 2");
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: rgba(49, 88, 138, 0.75);
+          z-index: -1;
+          border-radius: 17px;
+          opacity: 0;
+          transition: left .3s, top .3s, width .3s, height .3s, opacity .3s;
+        
+        }
+        &:hover {
+          color: white;
+         
+          border-width: 0;
+          &:after {
+            left: -1px;
+            top: -1px;
+            width: calc(~"100% + 1px * 2");
+            height: calc(~"100% + 1px * 2");
+            opacity: 1;
+          }
+        }
+      }      
+    }
+  }
+  .pagination {
+    width: 110px;
+    margin-top: 10px;
+    height: 35px;
+    line-height: 35px;   
+    margin-left: 16px;
+    .clearfix();  
+
+    span {
+      float: left;
+      display: inline-block;
+      margin-left: 8px;
+      
+    }
+    .now, .count {
+      font-size: 14px;
+    }
+        
+    .line{
+      width: 50px;
+      height: 1px;
+      background-color: rgba(161,161, 161, 1.0);
+      margin-top: 17px;
+
+      
+    }
+
+  }
+  .btns {
+    width: 80px;
+    margin-top: 10px;
+    >*{
+      float: left;
+      display: inline-block;
+     
+    }
+    .btn {
+      
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 18px;  
+      background-color: rgba(99, 140, 204, 1.0);
+      color: rgba(255, 255, 255, .75);
+      cursor: pointer;
+      text-align: center;
+      border-radius: 2px;
+
+      &:hover {
+        color:rgba(255, 255, 255, 1);
+        background-color: rgba(49, 88, 138, 1);
+        transition: background-color .3s, color .3s;
+      }
+
+      +.btn {
+        margin-left: 8px;
+      }
+    }
+  }
+
+}
+
+#menu {
+  width: @menuWidth;
+  background-color: rgba(49, 88, 138, 0.75);
+  a {
+    position: relative;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.75);
+    .overflow-doc3();
+    transition: color .3s,  background-color 0.3s;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: calc(~"50% - 10px / 2");
+      top: calc(~"50% - 10px / 2");
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color:  rgba(0, 0, 0, 1.00);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity .3s, top .3s, left .3s, width .3s, height .3s;
+    }
+    &:hover {
+      color: rgba(255, 255, 255, 1.0);      
+      //background-color:  rgba(0, 0, 0, 1.00);
+      &:after {
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+      }
+    }
+
+  }
+}
+
+#content{
+   width:calc(~"100%" - @menuWidth);
 }
