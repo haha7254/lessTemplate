@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp lessServer"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.1",
     "gulp-uglifycss": "^1.0.6",
+    "gulp-watch": "^4.3.11",
     "gulp-webserver": "^0.9.1"
   }
 }
