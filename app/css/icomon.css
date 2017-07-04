@@ -1,15 +1,12 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?rxto33');
-  src:  url('fonts/icomoon.eot?rxto33#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?rxto33') format('truetype'),
-    url('fonts/icomoon.woff?rxto33') format('woff'),
-    url('fonts/icomoon.svg?rxto33#icomoon') format('svg');
+  src: url('../font/icomcon/fonts/icomoon.eot');
+  src: url('../font/icomcon/fonts/icomoon.eot') format('embedded-opentype'), url('../font/icomcon/fonts/icomoon.ttf') format('truetype'), url('../font/icomcon/fonts/icomoon.woff') format('woff'), url('../font/icomcon/fonts/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -18,12 +15,10 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-linegraph:before {
   content: "\e039";
 }

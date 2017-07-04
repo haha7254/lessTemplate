@@ -1,3 +1,126 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../font/icomcon/fonts/icomoon.eot');
+  src: url('../font/icomcon/fonts/icomoon.eot') format('embedded-opentype'), url('../font/icomcon/fonts/icomoon.ttf') format('truetype'), url('../font/icomcon/fonts/icomoon.woff') format('woff'), url('../font/icomcon/fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-linegraph:before {
+  content: "\e039";
+}
+.icon-stats:before {
+  content: "\e902";
+}
+.icon-statistics:before {
+  content: "\e902";
+}
+.icon-decrease:before {
+  content: "\e902";
+}
+.icon-down:before {
+  content: "\e902";
+}
+.icon-stats2:before {
+  content: "\e903";
+}
+.icon-statistics2:before {
+  content: "\e903";
+}
+.icon-grow:before {
+  content: "\e903";
+}
+.icon-increase:before {
+  content: "\e903";
+}
+.icon-up:before {
+  content: "\e903";
+}
+.icon-reply:before {
+  content: "\e900";
+}
+.icon-arrow:before {
+  content: "\e900";
+}
+.icon-left:before {
+  content: "\e900";
+}
+.icon-undo:before {
+  content: "\e900";
+}
+.icon-forward:before {
+  content: "\e901";
+}
+.icon-arrow2:before {
+  content: "\e901";
+}
+.icon-right:before {
+  content: "\e901";
+}
+.icon-redo:before {
+  content: "\e901";
+}
+.icon-loop-alt2:before {
+  content: "\e904";
+}
+.icon-loop-alt3:before {
+  content: "\e905";
+}
+.icon-move-down:before {
+  content: "\e906";
+}
+.icon-move-up:before {
+  content: "\e907";
+}
+.icon-pencil:before {
+  content: "\e908";
+}
+.icon-file-empty:before {
+  content: "\e924";
+}
+.icon-copy:before {
+  content: "\e92c";
+}
+.icon-folder-open:before {
+  content: "\e930";
+}
+.icon-folder-download:before {
+  content: "\e933";
+}
+.icon-clipboard:before {
+  content: "\e9b8";
+}
+.icon-download2:before {
+  content: "\e9c5";
+}
+.icon-point-right:before {
+  content: "\ea04";
+}
+.icon-scissors:before {
+  content: "\ea5a";
+}
+.icon-find_replace:before {
+  content: "\e909";
+}
+.icon-select_all:before {
+  content: "\e90a";
+}
+.icon-chart-area:before {
+  content: "\e90b";
+}
 html {
   height: 100%;
 }
@@ -10,7 +133,167 @@ html body {
   height: 100%;
   font-size: medium;
   font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
-  background: white;
+  background: #ebebeb;
   color: rgba(50, 50, 50, 0.8);
   background-color: #eeeeee;
+}
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  background-color: #EEEEEE;
+  z-index: 100;
+  *zoom: 1;
+}
+#header:after {
+  display: table;
+  content: "";
+  line-height: 0;
+  clear: both;
+}
+#header > * {
+  float: left;
+  display: inline-block;
+}
+#header .file {
+  width: calc(170px);
+  margin-top: 10px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+#header .file > * {
+  float: left;
+  display: inline-block;
+}
+#header .file .btnFile {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 26px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+  background-color: 1px solid rgba(255, 0, 0, 0.3);
+  color: #393E46;
+}
+#header .file .btnFile:hover {
+  color: #00ADB5;
+  background-color: #31588a;
+  transition: background-color 0.3s, color 0.3s;
+}
+#header .file .btnFile + .btnFile {
+  margin-left: 1px;
+}
+#header .edit {
+  width: calc(210px);
+  margin-top: 10px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+#header .edit > * {
+  float: left;
+  display: inline-block;
+}
+#header .edit .btnEdit {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 26px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+  background-color: 1px solid rgba(0, 0, 0, 0.3);
+  color: #393E46;
+}
+#header .edit .btnEdit:hover {
+  color: #00ADB5;
+  background-color: #31588a;
+  transition: background-color 0.3s, color 0.3s;
+}
+#header .edit .btnEdit + .btnEdit {
+  margin-left: 1px;
+}
+#header .mode {
+  width: calc(250px);
+  margin-top: 10px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+#header .mode > * {
+  float: left;
+  display: inline-block;
+}
+#header .mode .btnMode {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 26px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+  background-color: 1px solid rgba(0, 0, 0, 0.3);
+  color: #393E46;
+}
+#header .mode .btnMode:hover {
+  color: #00ADB5;
+  background-color: #318a2c;
+  transition: background-color 0.3s, color 0.3s;
+}
+#header .mode .btnMode + .btnMode {
+  margin-left: 1px;
+}
+#header .function {
+  width: calc(100% - 10px - calc(170px) -  calc(210px) - calc(250px));
+}
+#main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.2);
+  padding-top: 55px;
+  padding-left: 200px;
+}
+#main > div {
+  display: inline-block;
+  width: 100%;
+  height: calc(100% - 55px - 25px);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  padding: 16px;
+  text-align: left;
+}
+#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 200px;
+  height: 100%;
+  background-color: #364F6B;
+  color: white;
+  z-index: 50;
+  padding-top: 55px;
+}
+#menu > div {
+  display: inline-block;
+}
+#state {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 100%;
+  height: 25px;
+  background-color: #f0f0f0;
+  z-index: 70;
+  padding-left: 200px;
+}
+#state > div {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255, 0, 0, 0.3);
 }
