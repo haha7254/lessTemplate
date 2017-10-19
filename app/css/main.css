@@ -18,7 +18,6 @@ html body {
 #header {
   width: 960px;
   height: 128px;
-  border-color: green;
   *zoom: 1;
 }
 #header:before,
@@ -39,4 +38,23 @@ html body {
   display: inline-block;
   width: calc(100% - 120px);
   border: 1px solid red;
+}
+#btn {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  left: 0;
+  top: 500px;
+}
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+  fill: none;
+  stroke: #ffab00;
+  stroke-width: 3;
+}
+/* Style the dots by assigning a fill and stroke */
+.dot {
+  fill: #ffab00;
+  stroke: #fff;
 }
